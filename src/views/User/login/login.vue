@@ -1,7 +1,7 @@
 <template>
   <section class="dk_login">
     <div class="dk_login_content">
-      <h3 class="mt20vh">RENOVA</h3>
+      <h3 class="mt20vh">毒牙君vue后台管理系统</h3>
       <a-form
         id="components-form-demo-normal-login"
         :form="loginForm"
@@ -23,7 +23,7 @@
                 ]
               }
             ]"
-            placeholder="Please enter your username/email"
+            placeholder="admin"
           >
             <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
           </a-input>
@@ -40,7 +40,7 @@
               }
             ]"
             type="password"
-            placeholder="Please enter your password"
+            placeholder="123456"
           >
             <a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
           </a-input>
@@ -115,7 +115,7 @@ export default {
   background: url(https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg);
   box-sizing: border-box;
   .dk_login_content {
-    margin: -20vh auto 0 auto;
+    margin: -30vh auto 0 auto;
     padding: 20px;
     width: 428px;
     max-width: 80%;
