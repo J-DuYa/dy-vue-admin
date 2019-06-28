@@ -1,0 +1,24 @@
+body, html, p, li, div, ul {
+  margin: 0;
+  padding: 0;
+}
+
+// 布局侧边菜单抽屉样式重置
+.mb-asider-ctn {
+  color: #000 !important;
+  .ant-drawer-body {
+    padding: 0;
+    .ly-ctn-menu {
+      height: 100vh;
+      .ant-menu-item {
+        margin-top: 0px;
+      }
+    }
+  }
+}
+
+// 退出登录页面下拉样式重置
+.dk-lg-dpd-open.ant-dropdown {
+  width: 100%;
+  left: 0;
+}
