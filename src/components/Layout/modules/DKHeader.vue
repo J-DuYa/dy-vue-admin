@@ -72,6 +72,7 @@ export default {
   padding: 0 20px;
   border-left: 1px solid #efefef;
   background: #fff !important;
+  z-index: 999;
   .anticon {
     padding: 20px 20px 20px 0;
   }
