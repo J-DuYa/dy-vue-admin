@@ -9,7 +9,7 @@
 
 > This is my time
 
-> 毒牙，不要去祸害别人了。I have to do this, i love her(Q), but i have no choice, so poor😔.
+> i love her(Q).
 
 ### program setup and other order
 
