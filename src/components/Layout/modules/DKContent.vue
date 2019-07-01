@@ -18,6 +18,6 @@ export default {
 <style lang="less" scoped>
 .dk_container {
   margin: 20px;
-  height: calc(100% - 64px);
+  height: calc(100% - 165px);
 }
 </style>

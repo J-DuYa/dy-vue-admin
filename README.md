@@ -39,4 +39,6 @@
 
 毒牙
 
+***<span style="color: blue"> 如果对你<span style="color: red">有用</span>，或者你认为本项目<span style="color: red">有所价值</span>，请为我们的项目点个<span style="color: red">Star</span></span>***
+
 @copyright 2019

@@ -16,6 +16,7 @@ router.beforeEach(async (to, from, next) => {
   NProgress.start();
   // 进入页面的之前 先检测是否进入页面的时候有token(除了特殊页面，如登录，注册，密码等页面)
   if (to.meta.isNotValAuth) {
+    Cookies.remove("token");
     next();
   } else {
     // 需要验证token是否存在，不存在返回登陆页面

@@ -17,7 +17,7 @@
         class="ly-ctn-menu"
         :theme="themeConfig.color"
         mode="inline"
-        :defaultSelectedKeys="['about']"
+        :defaultSelectedKeys="['home']"
       >
         <template v-for="menu in menuLists">
           <a-menu-item :key="menu.key" v-if="!menu.isHasChild">

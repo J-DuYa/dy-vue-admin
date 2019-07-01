@@ -16,12 +16,6 @@ export default new Router({
         isNotValAuth: true // 不需要验证
       }
     },
-    // {
-    //   path: "/about",
-    //   name: "about",
-    //   component: () =>
-    //     import(/* webpackChunkName: "about" */ "@/views/About.vue")
-    // }
     {
       path: "/layout",
       name: "layout",
@@ -29,9 +23,30 @@ export default new Router({
       redirect: "/about",
       children: [
         {
+          path: "/home",
+          name: "home",
+          component: () => import("@/views/Home")
+        },
+        {
+          // 个人信息
+          path: "/basicInfo",
+          name: "basicInfo",
+          component: () => import("@/views/User/basicInfo")
+        },
+        {
           path: "/about",
           name: "about",
           component: () => import("@/views/About")
+        },
+        {
+          path: "/cCanvas",
+          name: "cCanvas",
+          component: () => import("@/views/Canvas/clickCanvas")
+        },
+        {
+          path: "/sCanvas",
+          name: "sCanvas",
+          component: () => import("@/views/Canvas/starCanvas")
         },
         {
           path: "/404",

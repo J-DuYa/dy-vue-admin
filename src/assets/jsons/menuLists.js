@@ -5,6 +5,13 @@
 export default {
   menu: [
     {
+      key: "home",
+      menuName: "首页",
+      icon: "home",
+      isHasChild: false,
+      path: "/home"
+    },
+    {
       key: "person",
       menuName: "个人中心",
       icon: "user",
@@ -21,6 +28,24 @@ export default {
           key: "menu-list",
           menuName: "菜单列表",
           path: "/menuList"
+        }
+      ]
+    },
+    {
+      key: "canvas",
+      menuName: "Canvas",
+      icon: "bg-colors",
+      isHasChild: true,
+      child: [
+        {
+          key: "cCanvas",
+          menuName: "尾随事件",
+          path: "/cCanvas"
+        },
+        {
+          key: "sCanvas",
+          menuName: "星空图",
+          path: "/sCanvas"
         }
       ]
     },

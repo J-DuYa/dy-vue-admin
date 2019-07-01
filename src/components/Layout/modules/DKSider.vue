@@ -7,15 +7,13 @@
     class="dk_sider"
     :class="{ pcSider: !collapsed }"
   >
-    <div class="dk_header_logo">
-      Ya Du
-    </div>
+    <div class="dk_header_logo">Ya Du</div>
     <a-menu
       class="ly-ctn-menu"
       :theme="themeConfig.color"
       mode="inline"
       @select="selectMenu"
-      :defaultSelectedKeys="['about']"
+      :defaultSelectedKeys="['home']"
     >
       <template v-for="menu in menuLists">
         <a-menu-item :key="menu.key" v-if="!menu.isHasChild">
