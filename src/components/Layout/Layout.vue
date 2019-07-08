@@ -6,7 +6,7 @@
       <a-layout class="ly--c-r-ctn">
         <DKHeader />
         <DKContent />
-        <DKFooter />
+        <!-- <DKFooter /> -->
       </a-layout>
     </a-layout>
   </div>
