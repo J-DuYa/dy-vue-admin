@@ -60,7 +60,7 @@ module.exports = {
       }
     }
   },
-  publicPath: process.env.NODE_ENV === "production" ? "st~atic" : "/",
+  publicPath: process.env.NODE_ENV === "production" ? "static" : "/",
   configureWebpack: config => {
     if (isProduction) {
       // externals 预加载
