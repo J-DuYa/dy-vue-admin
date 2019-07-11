@@ -9,8 +9,6 @@
 
 > This is my time
 
-> i love her(Q).
-
 ### program setup and other order
 
 1. npm i or cnpm i
