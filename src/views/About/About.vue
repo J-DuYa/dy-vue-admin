@@ -35,12 +35,14 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { mockLocalstorage } from "@/utils/common";
 export default {
   computed: {
     ...mapGetters(["device"])
   },
   data() {
     return {
+      mockLocalstorage: new mockLocalstorage(),
       breadList: [
         {
           title: "首页",
@@ -110,7 +112,10 @@ export default {
       this.noteList = arr;
     }
   },
-  created() {}
+  created() {
+    this.mockLocalstorage.setItem("name", "duya");
+    console.log(this.mockLocalstorage.getItem("name")); // 测试mockLocalstorage duya
+  }
 };
 </script>
 <style lang="less" scoped>
