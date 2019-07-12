@@ -7,7 +7,11 @@
       <a-spin class="globalLoading" size="large" />
     </div>-->
     <router-view />
-    <div class="setting" :class="isTrue ? right_Dis_0 : right_Dis_30">
+    <div
+      class="setting"
+      :class="isTrue ? right_Dis_0 : right_Dis_30"
+      v-if="setting"
+    >
       <div class="setting-btn" @click="showModel">
         <a-icon type="setting" />&nbsp;设置
       </div>
@@ -17,6 +21,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -25,9 +30,11 @@ export default {
       isTrue: false
     };
   },
+  computed: {
+    ...mapGetters(["setting"])
+  },
   methods: {
     showModel() {
-      console.log("出发");
       this.isTrue = !this.isTrue;
     }
   }

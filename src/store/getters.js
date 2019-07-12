@@ -5,7 +5,8 @@
  */
 const getters = {
   device: state => state.app.device,
-  collapsed: state => state.app.collapsed
+  collapsed: state => state.app.collapsed,
+  setting: state => state.app.setting
 };
 
 export default getters;

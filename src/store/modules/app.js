@@ -7,7 +7,8 @@
 const state = {
   init: false, // 刚进页面之前init为false,
   device: "pc", // 设备是手机还是pc
-  collapsed: false
+  collapsed: false,
+  setting: false
 };
 
 const mutations = {
@@ -16,6 +17,9 @@ const mutations = {
   },
   UPDATE_DEVICE: (state, device) => {
     state.device = device;
+  },
+  UPDATE_SETTING: (state, status) => {
+    state.setting = status;
   }
 };
 
@@ -25,6 +29,9 @@ const actions = {
   },
   updateDevice({ commit }, device) {
     commit("UPDATE_DEVICE", device);
+  },
+  updateSetting({ commit }, status) {
+    commit("UPDATE_SETTING", status);
   }
 };
 
