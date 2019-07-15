@@ -27,11 +27,14 @@ router.beforeEach(async (to, from, next) => {
       next();
     } else {
       store.dispatch("app/updateSetting", false);
-      next("/");
+      next("/login");
     }
   }
 });
 
 router.afterEach(() => {
+  if (!Cookies.get("token")) {
+    router.replace("/login");
+  }
   NProgress.done();
 });

@@ -36,6 +36,7 @@
 <script>
 import { mapGetters } from "vuex";
 import { mockLocalstorage } from "@/utils/common";
+import { setTimeout } from 'timers';
 export default {
   computed: {
     ...mapGetters(["device"])
@@ -112,8 +113,15 @@ export default {
     }
   },
   created() {
-    this.mockLocalstorage.setItem("name", "duya");
+    let _this = this;
+    let time = null;
+    this.mockLocalstorage.setItem("name", "duya", 0.001);
     console.log(this.mockLocalstorage.getItem("name")); // 测试mockLocalstorage duya
+
+    time = setTimeout(() => {
+      time = null;
+      console.log("name " + _this.mockLocalstorage.getItem("name")); // "name: null"
+    }, 0.001 * 60 * 60 * 1000);
   }
 };
 </script>

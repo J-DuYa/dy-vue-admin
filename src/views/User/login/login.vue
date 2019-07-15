@@ -47,12 +47,8 @@
         </a-form-item>
         <a-form-item>
           <div class="btn_area">
-            <a class="login-form-forgot" href="">
-              No account?
-            </a>
-            <a class="login-form-forgot" href="">
-              Forgot password?
-            </a>
+            <a class="login-form-forgot" href>No account?</a>
+            <a class="login-form-forgot" href>Forgot password?</a>
           </div>
           <a-button
             type="primary"
@@ -61,9 +57,7 @@
             size="large"
             block
             :loading="submitLoading"
-          >
-            登 录
-          </a-button>
+          >登 录</a-button>
         </a-form-item>
       </a-form>
     </div>
@@ -93,7 +87,7 @@ export default {
             .then(res => {
               if (res.data.code === 200) {
                 this.$Cookies.set("token", res.data.token);
-                this.$router.push("/layout");
+                this.$router.push("/");
               }
             })
             .finally(() => {

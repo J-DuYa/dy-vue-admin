@@ -13,10 +13,10 @@
       :theme="themeConfig.color"
       mode="inline"
       @select="selectMenu"
-      :defaultSelectedKeys="['home']"
+      :defaultSelectedKeys="[activeMenu]"
     >
       <template v-for="menu in menuLists">
-        <a-menu-item :key="menu.key" v-if="!menu.isHasChild">
+        <a-menu-item :key="menu.key" v-if="!menu.isHasChild" @click="changeMenu(menu.path)">
           <router-link :to="menu.path">
             <a-icon :type="menu.icon" />
             <span>{{ menu.menuName }}</span>
@@ -28,10 +28,8 @@
             <span>{{ menu.menuName }}</span>
           </span>
           <template v-for="childItem in menu.child">
-            <a-menu-item :key="childItem.key">
-              <router-link :to="childItem.path">
-                {{ childItem.menuName }}
-              </router-link>
+            <a-menu-item :key="childItem.key" @click="changeMenu(childItem.path)">
+              <router-link :to="childItem.path">{{ childItem.menuName }}</router-link>
             </a-menu-item>
           </template>
         </a-sub-menu>
@@ -42,24 +40,22 @@
 
 <script>
 import github from "@/assets/images/github.jpg";
-import Menulists from "@/assets/jsons/menuLists";
 import menuSelect from "./../minxins/menuSelect";
 import { mapGetters } from "vuex";
+import menuLists from "./../minxins/menuList";
 export default {
   name: "DKSider",
   props: {},
-  mixins: [menuSelect],
+  mixins: [menuSelect, menuLists],
   computed: {
-    ...mapGetters(["collapsed"])
+    ...mapGetters(["collapsed", "menuVal"])
   },
   data() {
     return {
       github: github,
       themeConfig: {
         color: "dark"
-      },
-      // 配置menu
-      menuLists: Menulists.menu
+      }
     };
   },
   methods: {}

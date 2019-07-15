@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
+import store from "@/store";
 
 Vue.use(Router);
 
@@ -8,7 +9,7 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/",
+      path: "/login",
       name: "login",
       // "预加载"router
       component: () => import("@/views/User/login"),
@@ -17,10 +18,10 @@ export default new Router({
       }
     },
     {
-      path: "/layout",
+      path: "/",
       name: "layout",
       component: () => import("@/components/Layout"),
-      redirect: "/about",
+      redirect: store.getters["menuPath"],
       children: [
         {
           path: "/home",
