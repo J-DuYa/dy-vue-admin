@@ -40,6 +40,9 @@ module.exports = {
     modules: false,
     loaderOptions: {}
   },
+  // resolve: {
+  //   extensions: [".js", ".ts", ".vue", ".json"]
+  // },
   // 默认生成的静态资源文件名中包含hash以控制缓存
   filenameHashing: true,
   // 是否在保存的时候使用 `eslint-loader` 进行检查。
@@ -97,6 +100,11 @@ module.exports = {
      * 删除懒加载模块的prefetch，降低带宽压力
      * 而且预渲染时生成的prefetch标签是modern版本的，低版本浏览器是不需要的
      */
+    const svgRule = config.module.rule("svg");
+    svgRule.uses.clear();
+
+    svgRule.use("vue-svg-loader").loader("vue-svg-loader");
+
     config.plugins.delete("prefetch");
     config.plugin("html").tap(args => {
       if (isProduction) {

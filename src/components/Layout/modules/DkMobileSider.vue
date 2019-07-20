@@ -17,7 +17,7 @@
         class="ly-ctn-menu"
         :theme="themeConfig.color"
         mode="inline"
-        :defaultSelectedKeys="['home']"
+        :defaultSelectedKeys="[activeMenu]"
       >
         <template v-for="menu in menuLists">
           <a-menu-item :key="menu.key" v-if="!menu.isHasChild" @click="changeMenu(menu.path)">

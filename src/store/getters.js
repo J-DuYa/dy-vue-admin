@@ -7,7 +7,8 @@ const getters = {
   device: state => state.app.device,
   collapsed: state => state.app.collapsed,
   setting: state => state.app.setting,
-  menuPath: state => state.app.menuPath
+  menuPath: state => state.app.menuPath,
+  language: state => state.app.language
 };
 
 export default getters;

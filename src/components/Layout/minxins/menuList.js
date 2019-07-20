@@ -3,18 +3,32 @@ import Menulists from "@/assets/jsons/menuLists";
 // 混合minxins
 export default {
   computed: {
-    ...mapGetters(["menuPath"])
+    ...mapGetters(["menuPath", "language"])
   },
   data() {
     return {
-      menuLists: Menulists.menu,
+      menuLists: [],
       // 聚焦菜单
-      activeMenu: this.menuPath ? this.menuPath : Menulists.menu[0].key
+      activeMenu: ""
     };
   },
   methods: {
     changeMenu(path) {
       this.$store.dispatch("app/updateMenu", path);
     }
+  },
+  watch: {
+    menuPath(newVal) {
+      this.activeMenu = newVal;
+    },
+    language(newVal) {
+      this.menuLists = Menulists[newVal] ? Menulists[newVal]["menu"] : [];
+    }
+  },
+  created() {
+    this.menuLists = Menulists[this.language]
+      ? Menulists[this.language].menu
+      : [];
+    this.activeMenu = this.menuPath.replace("/", "");
   }
 };

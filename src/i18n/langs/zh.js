@@ -5,4 +5,8 @@
  * @language 简体中文
  * @Last Modified time: 2019-06-18 14:13:09
  */
-module.exports = {};
+module.exports = {
+  language: "ZH",
+  systemName: "小毒君后台管理系统",
+  setting: "设置"
+};

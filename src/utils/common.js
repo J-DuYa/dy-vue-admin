@@ -8,11 +8,28 @@
 
 "use strict";
 
+import { notification } from "ant-design-vue";
+
 // 格式化時間
 export async function formatDate() {}
 
 // 处理文件名
 export async function dealFileName() {}
+
+// 统一通知提醒框, more things to think
+// @param {config}: 内容包括：图标， 颜色， 延迟(单位为秒)等等
+export async function DealWithNotification(
+  title = "这是一个通知提醒框",
+  desc = "这里显示所要述说的内容",
+  config
+) {
+  notification.open({
+    message: title,
+    description: desc,
+    ...config,
+    duration: config.duration ? config.duration : 2
+  });
+}
 
 // 匹配url后面的关于某字段的值
 export async function getUrlParam(url = "", param = "") {
@@ -41,6 +58,10 @@ export async function getUrlParam(url = "", param = "") {
       result = item.split("=")[1];
     }
   });
+
+  // 方法三 正则表达式匹配
+  // 匹配 ? or & 之后的内容
+  // result = url.match(/(?<=elective=)(\d+(,\d+)*)/);
 
   return result.split(",").length === 1
     ? result.split(",")[0] === ""

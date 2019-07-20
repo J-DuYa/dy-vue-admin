@@ -4,9 +4,9 @@
     <div class="a-ctn mt20">
       <XCard title="关于我们">
         <template slot="content">
-          <div class="superMe">
-            我们是一个团体，来自养育我们的星球，当我们变得孤寂，星球也会变成一个伤心之地，因为她能听懂我们的心声，看清事物的本质，通晓万物，却又不能改变现实。当我们觉得时间没有规则的时候，可能已不再年轻。
-          </div>
+          <div
+            class="superMe"
+          >我们是一个团体，来自养育我们的星球，当我们变得孤寂，星球也会变成一个伤心之地，因为她能听懂我们的心声，看清事物的本质，通晓万物，却又不能改变现实。当我们觉得时间没有规则的时候，可能已不再年轻。</div>
         </template>
       </XCard>
       <div class="a-bsInfo mt20">
@@ -21,9 +21,7 @@
                   @dragstart="dragStart($event, index)"
                   @dragover="allowDrop"
                   @drop="drop($event, index)"
-                >
-                  {{ data.date }}：{{ data.msg }}</a-timeline-item
-                >
+                >{{ data.date }}：{{ data.msg }}</a-timeline-item>
               </template>
             </a-timeline>
           </template>
@@ -36,7 +34,8 @@
 <script>
 import { mapGetters } from "vuex";
 import { mockLocalstorage } from "@/utils/common";
-import { setTimeout } from 'timers';
+import { setTimeout } from "timers";
+// import { fileGenerator } from "@/utils/dyTest.ts";
 export default {
   computed: {
     ...mapGetters(["device"])
@@ -113,16 +112,17 @@ export default {
     }
   },
   created() {
-    let _this = this;
-    let time = null;
-    this.mockLocalstorage.setItem("name", "duya", 0.001);
-    console.log(this.mockLocalstorage.getItem("name")); // 测试mockLocalstorage duya
-
-    time = setTimeout(() => {
-      time = null;
-      console.log("name " + _this.mockLocalstorage.getItem("name")); // "name: null"
-    }, 0.001 * 60 * 60 * 1000);
-  }
+    // let _this = this;
+    // let time = null;
+    // this.mockLocalstorage.setItem("name", "duya", 0.001);
+    // console.log(this.mockLocalstorage.getItem("name")); // 测试mockLocalstorage duya
+    // time = setTimeout(() => {
+    //   time = null;
+    //   console.log("name " + _this.mockLocalstorage.getItem("name")); // "name: null"
+    // }, 0.001 * 60 * 60 * 1000);
+    // test generator
+  },
+  destroyed() {}
 };
 </script>
 <style lang="less" scoped>

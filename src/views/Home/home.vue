@@ -1,7 +1,11 @@
 <template>
-  <div>
-    首页
-    <a-button type="primary">Primary</a-button>
+  <div class="sys-home">
+    <!-- 消息区域 -->
+    <Tip>
+      <div class="content">陪伴是最长久的告白</div>
+    </Tip>
+    <!-- 个人信息卡片 -->
+    <HeadCard class="mt10 personCard"></HeadCard>
   </div>
 </template>
 
@@ -14,4 +18,12 @@ export default {
 };
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.sys-home {
+  .personCard {
+    display: inline-block;
+    width: 350px;
+    max-width: 100%;
+  }
+}
+</style>

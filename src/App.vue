@@ -7,13 +7,10 @@
       <a-spin class="globalLoading" size="large" />
     </div>-->
     <router-view />
-    <div
-      class="setting"
-      :class="isTrue ? right_Dis_0 : right_Dis_30"
-      v-if="setting"
-    >
+    <div class="setting" :class="isTrue ? right_Dis_0 : right_Dis_30" v-if="setting">
       <div class="setting-btn" @click="showModel">
-        <a-icon type="setting" />&nbsp;设置
+        <a-icon type="setting" />
+        &nbsp;{{ $t("setting") }}
       </div>
       <div class="setting-content"></div>
     </div>
@@ -45,7 +42,7 @@ export default {
 @import url("~@/assets/css/color.less");
 #app {
   position: relative;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, "Microsoft YaHei", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

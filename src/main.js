@@ -21,6 +21,8 @@ import request from "@/utils/request";
 // 自定义组件引入
 import Breadcrumb from "@/components/Breadcrumb";
 import XCard from "@/components/XCard";
+import Tip from "@/components/Tip";
+import HeadCard from "@/components/HeadCard";
 
 // 自定义插件
 import vMessage from "@/components/Message";
@@ -34,6 +36,8 @@ Vue.use(vMessage);
 /** 自定义组件引入 start */
 Vue.component(Breadcrumb.name, Breadcrumb);
 Vue.component(XCard.name, XCard);
+Vue.component(Tip.name, Tip);
+Vue.component(HeadCard.name, HeadCard);
 /** 自定义组件引入 end */
 
 Vue.config.productionTip = false;
@@ -43,7 +47,10 @@ Vue.prototype.$Cookies = Cookies;
 
 // 配置全局的错误报告
 Vue.config.errorHandler = function(err, vm, info) {
-  console.log(`页面发生错误: ${err.toString()}\n错误信息：${info}`);
+  if (err.toString().indexOf("$i18n") === -1) {
+    // 排除$i18n的错误，这个错误没必要告诉前台页面
+    console.log(`页面发生错误: ${err.toString()}\n错误信息：${info}`);
+  }
 };
 
 new Vue({

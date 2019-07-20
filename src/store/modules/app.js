@@ -5,7 +5,7 @@
  */
 // 取默认的菜单
 import Menulists from "@/assets/jsons/menuLists";
-import Cookies from "js-cookie";
+import i18n from "@/i18n/vue-i18n";
 
 const state = {
   init: false, // 刚进页面之前init为false,
@@ -14,9 +14,12 @@ const state = {
   setting: false,
   // 一种方法记录点击菜单到localstorage中，还有另一种方法记菜单数据到store中
   // 最好的记录方法是将点击的数据记录到localstorage中或cookies里面这样的话比较很方便的取得数据的内容，如果存到store中的话
-  menuPath: Cookies.get("menuPath")
-    ? Cookies.get("menuPath")
-    : Menulists.menu[0].path
+  menuPath: localStorage.getItem("menuPath")
+    ? localStorage.getItem("menuPath")
+    : Menulists.menu[0].path,
+  language: localStorage.getItem("language")
+    ? localStorage.getItem("language")
+    : "ZH"
 };
 
 const mutations = {
@@ -31,7 +34,12 @@ const mutations = {
   },
   UPDATEMENU: (state, menuPath) => {
     state.menuPath = menuPath;
-    Cookies.set("menuPath", menuPath);
+    localStorage.setItem("menuPath", menuPath);
+  },
+  CHANGELANGUAGE: (state, language) => {
+    state.language = language;
+    localStorage.setItem("language", language);
+    i18n.locale = localStorage.getItem("language").toLowerCase();
   }
 };
 
@@ -47,6 +55,9 @@ const actions = {
   },
   updateMenu({ commit }, menuPath) {
     commit("UPDATEMENU", menuPath);
+  },
+  changeLanguage({ commit }, language) {
+    commit("CHANGELANGUAGE", language);
   }
 };
 

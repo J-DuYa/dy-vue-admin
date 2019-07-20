@@ -20,8 +20,8 @@ const gobalMsg = {
 };
 
 const i18n = new VueI18n({
-  locale: localStorage.getItem("locale") || "zh",
-  gobalMsg
+  locale: localStorage.getItem("language").toLowerCase() || "zh",
+  messages: gobalMsg
 });
 
 export default i18n;
