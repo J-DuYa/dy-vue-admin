@@ -39,7 +39,9 @@ const mutations = {
   CHANGELANGUAGE: (state, language) => {
     state.language = language;
     localStorage.setItem("language", language);
-    i18n.locale = localStorage.getItem("language").toLowerCase();
+    i18n.locale = localStorage.getItem("language")
+      ? localStorage.getItem("language").toLowerCase()
+      : "zh";
   }
 };
 
