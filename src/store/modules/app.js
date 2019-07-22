@@ -16,7 +16,9 @@ const state = {
   // 最好的记录方法是将点击的数据记录到localstorage中或cookies里面这样的话比较很方便的取得数据的内容，如果存到store中的话
   menuPath: localStorage.getItem("menuPath")
     ? localStorage.getItem("menuPath")
-    : Menulists.menu[0].path,
+    : Menulists.menu && Menulists.menu.length > 0
+    ? Menulists.menu[0].path
+    : "/home",
   language: localStorage.getItem("language")
     ? localStorage.getItem("language")
     : "ZH"
