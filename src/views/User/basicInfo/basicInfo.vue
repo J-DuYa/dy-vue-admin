@@ -44,8 +44,8 @@ export default {
 
 <style lang="less" scoped>
 .basic-center {
-  position: relative;
   .prettyprint {
+    position: relative;
     padding: 0 0 0 62.58px; // 这里可能要改因为这里的内容需要偏离ul 不能跟ul重叠
     // width: 600px;
     max-width: 100%;
