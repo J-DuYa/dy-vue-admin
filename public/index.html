@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--  DNS预解析  -->
     <link rel="dns-prefetch" href="//lib.baomitu.com" />
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <link
+      href="<%= BASE_URL %>static/color.less"
+      ref="stylesheet"
+      type="text/less"
+      id="colorImport"
+    />
     <% for (var i in
     htmlWebpackPlugin.options.cdn&&htmlWebpackPlugin.options.cdn.css) { %>
-      <link href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="preload" as="style" />
-      <link href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="stylesheet" />
+    <link
+      href="<%= htmlWebpackPlugin.options.cdn.css[i] %>"
+      rel="preload"
+      as="style"
+    />
+    <link href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="stylesheet" />
     <% } %>
-    <title>dy-vue-template</title>
+    <title>Du Ya</title>
     <style>
       #app {
         height: 100%;
         margin: 0px;
         padding: 0px;
       }
-  
+
       .chromeframe {
         margin: 0.2em 0;
         background: #ccc;
         color: #000;
         padding: 0.2em 0;
       }
-  
+
       #loader-wrapper {
         position: fixed;
         top: 0;
@@ -35,7 +45,7 @@
         height: 100%;
         z-index: 999999;
       }
-  
+
       #loader {
         display: block;
         position: relative;
@@ -47,7 +57,7 @@
         border-radius: 50%;
         border: 3px solid transparent;
         /* COLOR 1 */
-        border-top-color: #FFF;
+        border-top-color: #fff;
         -webkit-animation: spin 2s linear infinite;
         /* Chrome, Opera 15+, Safari 5+ */
         -ms-animation: spin 2s linear infinite;
@@ -60,7 +70,7 @@
         /* Chrome, Firefox 16+, IE 10+, Opera */
         z-index: 1001;
       }
-  
+
       #loader:before {
         content: "";
         position: absolute;
@@ -71,7 +81,7 @@
         border-radius: 50%;
         border: 3px solid transparent;
         /* COLOR 2 */
-        border-top-color: #FFF;
+        border-top-color: #fff;
         -webkit-animation: spin 3s linear infinite;
         /* Chrome, Opera 15+, Safari 5+ */
         -moz-animation: spin 3s linear infinite;
@@ -83,7 +93,7 @@
         animation: spin 3s linear infinite;
         /* Chrome, Firefox 16+, IE 10+, Opera */
       }
-  
+
       #loader:after {
         content: "";
         position: absolute;
@@ -93,7 +103,7 @@
         bottom: 15px;
         border-radius: 50%;
         border: 3px solid transparent;
-        border-top-color: #FFF;
+        border-top-color: #fff;
         /* COLOR 3 */
         -moz-animation: spin 1.5s linear infinite;
         /* Chrome, Opera 15+, Safari 5+ */
@@ -106,7 +116,7 @@
         animation: spin 1.5s linear infinite;
         /* Chrome, Firefox 16+, IE 10+, Opera */
       }
-  
+
       @-webkit-keyframes spin {
         0% {
           -webkit-transform: rotate(0deg);
@@ -116,7 +126,7 @@
           transform: rotate(0deg);
           /* Firefox 16+, IE 10+, Opera */
         }
-  
+
         100% {
           -webkit-transform: rotate(360deg);
           /* Chrome, Opera 15+, Safari 3.1+ */
@@ -126,7 +136,7 @@
           /* Firefox 16+, IE 10+, Opera */
         }
       }
-  
+
       @keyframes spin {
         0% {
           -webkit-transform: rotate(0deg);
@@ -136,7 +146,7 @@
           transform: rotate(0deg);
           /* Firefox 16+, IE 10+, Opera */
         }
-  
+
         100% {
           -webkit-transform: rotate(360deg);
           /* Chrome, Opera 15+, Safari 3.1+ */
@@ -146,13 +156,13 @@
           /* Firefox 16+, IE 10+, Opera */
         }
       }
-  
+
       #loader-wrapper .loader-section {
         position: fixed;
         top: 0;
         width: 51%;
         height: 100%;
-        background: #0099CC;
+        background: #0099cc;
         /* Old browsers */
         z-index: 1000;
         -webkit-transform: translateX(0);
@@ -162,15 +172,15 @@
         transform: translateX(0);
         /* Firefox 16+, IE 10+, Opera */
       }
-  
+
       #loader-wrapper .loader-section.section-left {
         left: 0;
       }
-  
+
       #loader-wrapper .loader-section.section-right {
         right: 0;
       }
-  
+
       /* Loaded */
       .loaded #loader-wrapper .loader-section.section-left {
         -webkit-transform: translateX(-100%);
@@ -179,10 +189,10 @@
         /* IE 9 */
         transform: translateX(-100%);
         /* Firefox 16+, IE 10+, Opera */
-        -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-        transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
-  
+
       .loaded #loader-wrapper .loader-section.section-right {
         -webkit-transform: translateX(100%);
         /* Chrome, Opera 15+, Safari 3.1+ */
@@ -190,16 +200,16 @@
         /* IE 9 */
         transform: translateX(100%);
         /* Firefox 16+, IE 10+, Opera */
-        -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-        transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
-  
+
       .loaded #loader {
         opacity: 0;
         -webkit-transition: all 0.3s ease-out;
         transition: all 0.3s ease-out;
       }
-  
+
       .loaded #loader-wrapper {
         visibility: hidden;
         -webkit-transform: translateY(-100%);
@@ -211,19 +221,19 @@
         -webkit-transition: all 0.3s 1s ease-out;
         transition: all 0.3s 1s ease-out;
       }
-  
+
       /* JavaScript Turned Off */
       .no-js #loader-wrapper {
         display: none;
       }
-  
+
       .no-js h1 {
         color: #222222;
       }
-  
+
       #loader-wrapper .load_title {
-        font-family: 'Open Sans';
-        color: #FFF;
+        font-family: "Open Sans";
+        color: #fff;
         font-size: 19px;
         width: 100%;
         text-align: center;
@@ -237,7 +247,10 @@
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but dy-vue-template doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong
+        >We're sorry but dy-vue-template doesn't work properly without
+        JavaScript enabled. Please enable it to continue.</strong
+      >
     </noscript>
     <div id="app">
       <div id="loader-wrapper">
@@ -247,12 +260,12 @@
         <div class="load_title">毒牙君，加速奔跑中...</div>
       </div>
     </div>
-      <!-- built files will be auto injected -->
-      <!-- 使用CDN加速的JS文件，配置在vue.config.js下 -->
-      <% for (var i in
-        htmlWebpackPlugin.options.cdn&&htmlWebpackPlugin.options.cdn.js) { %>
-        <script src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
-      <% } %>
-      <script src="//at.alicdn.com/t/font_1214870_g7m3soxlbn4.js"></script>
+    <!-- built files will be auto injected -->
+    <!-- 使用CDN加速的JS文件，配置在vue.config.js下 -->
+    <% for (var i in
+    htmlWebpackPlugin.options.cdn&&htmlWebpackPlugin.options.cdn.js) { %>
+    <script src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
+    <% } %>
+    <script src="//at.alicdn.com/t/font_1214870_g7m3soxlbn4.js"></script>
   </body>
 </html>

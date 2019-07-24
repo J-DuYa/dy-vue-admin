@@ -1,13 +1,17 @@
 <template>
-  <a-layout-content class="dk_container">
-    <Breadcrumb />
-    <router-view />
+  <a-layout-content class="sys_container">
+    <router-view class="mb10 content" />
+    <DKFooter class="footer" />
   </a-layout-content>
 </template>
 
 <script>
+import DKFooter from "./DKFooter";
 export default {
   name: "DKContent",
+  components: {
+    DKFooter
+  },
   data() {
     return {};
   },
@@ -17,11 +21,15 @@ export default {
 
 <style lang="less" scoped>
 @import url("~@/assets/css/color.less");
-.dk_container {
-  padding: 20px;
+.sys_container {
+  position: relative;
+  padding: 20px 20px 0 20px;
   overflow-y: auto;
   overflow-x: hidden;
   height: calc(100vh - 104px);
+  .content {
+    min-height: 100%;
+  }
 }
 
 /*定义滚动条高宽及背景

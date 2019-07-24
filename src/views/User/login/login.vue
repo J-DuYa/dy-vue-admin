@@ -57,7 +57,8 @@
             size="large"
             block
             :loading="submitLoading"
-          >登 录</a-button>
+            >登 录</a-button
+          >
         </a-form-item>
       </a-form>
     </div>

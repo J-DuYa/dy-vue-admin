@@ -1,6 +1,6 @@
 <template>
   <div class="basic-center">
-    <p style="line-height: 30px;">HTTP / 1.0</p>
+    <p style="line-height: 40px;font-weight: bold">HTTP / 1.0</p>
     <pre class="prettyprint" data-lang="HTML" ref="requestCode">
       <code class="preCode">请求格式
 GET / HTTP/1.0
@@ -19,6 +19,14 @@ Server: Apache 0.84
         <li v-for="(num, idx) in ctnListNum" :key="idx">{{num}}</li>
       </ul>
     </pre>
+    <pre class="prettyprint" data-lang="HTML" ref="techCode">
+      <code class="preCode">技术讨论建议：
+- 对于技术讨论的内容有必要提前告知听众(最好提前一天告知，这样让听众有所准备。对于不了解的领域，如果不提前复习的话，能听懂的很少）
+- 对于技术讨论讲解的时候，使用的最好放一些生动形象的图片或动图，让听众能够更好的理解
+- 对于讲解的知识点，不要大部分时间都猛砸定义和硬知识点，这样感觉太枯燥了</code>
+        <ul class="content">
+          <li v-for="(num, idx) in techNum" :key="idx">{{num}}</li>
+        </ul></pre>
   </div>
 </template>
 
@@ -27,7 +35,8 @@ export default {
   name: "basicInfo",
   data() {
     return {
-      ctnListNum: null
+      ctnListNum: null,
+      techNum: null
     };
   },
   mounted() {
@@ -35,9 +44,39 @@ export default {
     // console.log();
     try {
       this.ctnListNum = this.$refs["requestCode"].clientHeight / 30;
+      this.techNum = this.$refs["techCode"].clientHeight / 30;
     } catch (e) {
       throw new Error("计算code的高度报错");
     }
+  },
+  created() {
+    var entry = {
+      a: {
+        b: {
+          c: {
+            dd: "abcdd"
+          }
+        },
+        d: {
+          xx: "adxx"
+        },
+        e: "ae"
+      }
+    };
+
+    function getFlag(obj = {}, str = "", result = {}) {
+      Object.keys(obj).forEach(key => {
+        if (typeof obj[key] == "object") {
+          getFlag(obj[key], str + key + ".", result);
+        } else {
+          str += key;
+          result[str] = obj[key];
+        }
+      });
+      return result;
+    }
+
+    console.log(getFlag(entry, ""));
   }
 };
 </script>
@@ -60,7 +99,7 @@ export default {
       PingFang SC, Microsoft YaHei, sans-serif, monospace;
     .preCode {
       display: block;
-      margin-left: 10px;
+      margin-left: 2vh;
       word-wrap: break-word;
       white-space: pre;
       overflow-x: auto;

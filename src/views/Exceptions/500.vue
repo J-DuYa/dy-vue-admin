@@ -12,7 +12,7 @@
         <p class="desc">
           根要扎在土壤里，和风一起生存,和竹子一起过冬，和鸟儿一起歌颂春天，不管你拥有了多么惊人的武器，也不管你操纵了多少可怜的机器人，只要离开土地，就没办法生存。
         </p>
-        <router-link to="/about">返回首页</router-link>
+        <router-link to="/home">返回首页</router-link>
       </div>
     </div>
   </Exception>

@@ -23,7 +23,7 @@ const codeMessage = {
   504: "The gateway timed out."
 };
 
-axios.defaults.baseURL = "/api";
+const baseUrl = "/api";
 axios.defaults.timeout = 6000; // 根据具体情况而定
 
 /** 404 和 500 异常报错的处理方式  */
@@ -94,16 +94,21 @@ axios.interceptors.request.use(
 /** response 拦截器 */
 axios.interceptors.response.use(
   res => {
+    console.log(res);
     const statusKeys = Object.keys(codeMessage);
-    const {
-      data: { code }
-    } = res.data;
-    if (statusKeys.includes(code.toString())) {
-      // 隐式报错
-      custErrorHandler(res);
-      return res;
-    } else {
-      return res;
+    try {
+      const {
+        data: { code }
+      } = res.data;
+      if (statusKeys.includes(code.toString())) {
+        // 隐式报错
+        custErrorHandler(res);
+        return res;
+      } else {
+        return res;
+      }
+    } catch (e) {
+      return res.data;
     }
   },
   err => {
@@ -121,7 +126,7 @@ export default {
       ...defaultHeader
     };
     return new Promise(resolve => {
-      axios.get(url, params, headerConfig).then(res => {
+      axios.get(baseUrl + url, params, headerConfig).then(res => {
         const { data } = res;
         resolve(data);
       });
@@ -134,7 +139,7 @@ export default {
       ...defaultHeader
     };
     return new Promise(resolve => {
-      axios.post(url, params, headerConfig).then(res => {
+      axios.post(baseUrl + url, params, headerConfig).then(res => {
         const { data } = res;
         resolve(data);
       });
@@ -148,7 +153,7 @@ export default {
       responseType: "arraybuffer"
     };
     return new Promise(() => {
-      axios.post(url, params, headerConfig).then(res => {
+      axios.post(baseUrl + url, params, headerConfig).then(res => {
         const { data } = res;
         const aLink = document.createElement("a");
         const blob = new Blob([data], "application/vnd.ms-excel");

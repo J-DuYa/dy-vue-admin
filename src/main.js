@@ -23,6 +23,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import XCard from "@/components/XCard";
 import Tip from "@/components/Tip";
 import HeadCard from "@/components/HeadCard";
+import LineEchart from "@/components/LineEchart";
 
 // 自定义插件
 import vMessage from "@/components/Message";
@@ -38,6 +39,7 @@ Vue.component(Breadcrumb.name, Breadcrumb);
 Vue.component(XCard.name, XCard);
 Vue.component(Tip.name, Tip);
 Vue.component(HeadCard.name, HeadCard);
+Vue.component(LineEchart.name, LineEchart);
 /** 自定义组件引入 end */
 
 Vue.config.productionTip = false;

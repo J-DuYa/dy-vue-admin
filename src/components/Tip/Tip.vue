@@ -1,6 +1,6 @@
 <template>
   <div class="tip" :class="colorClass">
-    <a-icon type="smile" theme="twoTone" style />
+    <a-icon :type="icon" theme="twoTone" style />
     <div class="tip-content">
       <slot></slot>
     </div>
@@ -16,6 +16,10 @@ export default {
     color: {
       type: String,
       default: "primary"
+    },
+    icon: {
+      type: String,
+      default: "smile"
     }
   },
   computed: {

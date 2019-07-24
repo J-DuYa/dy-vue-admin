@@ -6,7 +6,6 @@
       <a-layout class="ly--c-r-ctn">
         <DKHeader />
         <DKContent />
-        <!-- <DKFooter /> -->
       </a-layout>
     </a-layout>
   </div>
@@ -14,7 +13,6 @@
 
 <script>
 import DKHeader from "./modules/DKHeader";
-import DKFooter from "./modules/DKFooter";
 import DKSider from "./modules/DKSider";
 import DKContent from "./modules/DKContent";
 import DkMobileSider from "./modules/DkMobileSider";
@@ -23,7 +21,6 @@ export default {
   name: "Layout",
   components: {
     DKHeader,
-    DKFooter,
     DKSider,
     DKContent,
     DkMobileSider

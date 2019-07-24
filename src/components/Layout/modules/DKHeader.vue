@@ -14,25 +14,38 @@
       </div>
       <!-- 语言选择 -->
       <div class="language mr15">
-        <span :class="language === 'ZH' ? 'active' : ''" @click="selectLanguage('ZH')">中文</span> /
-        <span :class="language === 'EN' ? 'active' : ''" @click="selectLanguage('EN')">EN</span>
+        <span
+          :class="language === 'ZH' ? 'active' : ''"
+          @click="selectLanguage('ZH')"
+          >中文</span
+        >
+        /
+        <span
+          :class="language === 'EN' ? 'active' : ''"
+          @click="selectLanguage('EN')"
+          >EN</span
+        >
       </div>
       <a-dropdown :overlayClassName="dklgdpd">
         <a-avatar
           shape="square"
           size="large"
           :style="{ backgroundColor: color, verticalAlign: 'middle' }"
-        >{{ avatarValue }}</a-avatar>
+          >{{ avatarValue }}</a-avatar
+        >
         <a class="ant-dropdown-link" href="#">
           Click me
           <a-icon type="down" />
         </a>
         <a-menu slot="overlay">
           <a-menu-item key="0">
-            <a href="http://www.alipay.com/">basicInfo</a>
+            <router-link to="/home">home</router-link>
           </a-menu-item>
           <a-menu-item key="1">
-            <a href="http://www.taobao.com/">setting</a>
+            <router-link to="/basicInfo">basicInfo</router-link>
+          </a-menu-item>
+          <a-menu-item key="2">
+            <router-link to="/about">about</router-link>
           </a-menu-item>
           <a-menu-divider />
           <a-menu-item key="3" @click="exit_to_app">exit_to_app</a-menu-item>

@@ -1,6 +1,6 @@
 <template>
-  <footer class="ctn-footer">
-    @copyright 2019
+  <footer class="ctn-footer mt20">
+    @copyright 2019 DuYa
   </footer>
 </template>
 
@@ -12,7 +12,8 @@ export default {
 
 <style lang="less" scoped>
 .ctn-footer {
-  padding: 20px;
+  height: 40px;
+  line-height: 40px;
   font-size: 14px;
   color: #666;
   text-align: center;

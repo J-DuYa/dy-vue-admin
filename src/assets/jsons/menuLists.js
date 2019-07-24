@@ -51,6 +51,24 @@ export default {
         ]
       },
       {
+        key: "exception",
+        menuName: "异常页面",
+        icon: "warning",
+        isHasChild: true,
+        child: [
+          {
+            key: "404",
+            menuName: "404",
+            path: "/404"
+          },
+          {
+            key: "500",
+            menuName: "500",
+            path: "/500"
+          }
+        ]
+      },
+      {
         key: "staff",
         menuName: "员工管理",
         icon: "team",
@@ -116,6 +134,24 @@ export default {
             key: "sCanvas",
             menuName: "star image",
             path: "/sCanvas"
+          }
+        ]
+      },
+      {
+        key: "exception",
+        menuName: "exception page",
+        icon: "warning",
+        isHasChild: true,
+        child: [
+          {
+            key: "404",
+            menuName: "404",
+            path: "/404"
+          },
+          {
+            key: "500",
+            menuName: "500",
+            path: "/500"
           }
         ]
       },

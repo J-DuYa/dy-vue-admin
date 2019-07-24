@@ -110,6 +110,7 @@ export default {
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      line-height: 30px;
       span:first-child {
         display: inline-block;
         margin-right: 10px;
