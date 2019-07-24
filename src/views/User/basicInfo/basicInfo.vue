@@ -112,6 +112,7 @@ export default {
       bottom: 0;
       left: 0;
       height: 100%;
+      width: 65px;
       // padding-top: 10px;
       overflow-x: auto;
       overflow-y: hidden;

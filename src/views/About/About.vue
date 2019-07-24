@@ -21,9 +21,8 @@
                   @dragstart="dragStart($event, index)"
                   @dragover="allowDrop"
                   @drop="drop($event, index)"
+                  >{{ data.date }}：{{ data.msg }}</a-timeline-item
                 >
-                  {{ data.date }}：{{ data.msg }}
-                </a-timeline-item>
               </template>
             </a-timeline>
           </template>
@@ -55,44 +54,13 @@ export default {
           id: 100,
           color: "green",
           date: "2019/05/27",
-          msg: "这是我来新公司的第一天"
+          msg: "这是我来新公司的第一天，项目刚成立"
         },
         {
           id: 101,
-          color: "blue",
-          date: "2019/06/01 - ~",
-          msg:
-            "I love a girl who has a pair of beautiful eyes and an elegant temperament in my new company but she will leave."
-        },
-        {
-          id: 102,
           color: "green",
-          date: "2019/06/27",
-          msg: "这是我来新公司整整一个月了"
-        },
-        {
-          id: 103,
-          color: "red",
-          date: "未来的日子",
-          msg: "i still love her"
-        },
-        {
-          id: 104,
-          color: "red",
-          date: "2019年7月的第一周，我真的好烦躁",
-          msg: "我说了很多很多的弱智的话语，我有点弱智了。"
-        },
-        {
-          id: 105,
-          color: "blue",
-          date: "2019年7月的第二周，我想请求帮助",
-          msg: "我想改过自新，能不能给我一个机会。"
-        },
-        {
-          id: 106,
-          color: "blue",
-          date: "2019年7月的倒数第二周",
-          msg: "我不放弃，即使嘴上说，我依旧不会放弃✊"
+          date: "2019/07/24",
+          msg: "项目进行全面更新"
         }
       ]
     };
