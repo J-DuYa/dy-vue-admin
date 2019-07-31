@@ -21,12 +21,15 @@
         <LineChart class="mt10" title="每周任务统计"></LineChart>
         <LineChart class="mt10" title="进出流量统计"></LineChart>
       </a-col>
-      <!-- <a-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">Col</a-col> -->
+      <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+        <mavon-editor class="mk mt10" v-model="mk" />
+      </a-col>
     </a-row>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "home",
   data() {
@@ -35,8 +38,21 @@ export default {
         {
           title: "首页"
         }
-      ]
+      ],
+      mk: null
     };
+  },
+  mounted: {},
+  methods: {
+    getReadMd() {
+      axios.get(`${process.env.BASE_URL}` + "HelloWorld.md").then(res => {
+        console.log(res);
+        this.mk = res;
+      });
+    }
+  },
+  created() {
+    this.getReadMd();
   }
 };
 </script>
@@ -47,6 +63,22 @@ export default {
     display: inline-block;
     width: 500px;
     max-width: 100%;
+  }
+}
+
+.mk {
+  /deep/ .v-note-op {
+    display: none;
+  }
+  /deep/ .v-note-edit {
+    display: none;
+  }
+  /deep/ .v-note-show {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+  }
+  /deep/ .v-note-panel.shadow {
+    box-shadow: none;
   }
 }
 </style>

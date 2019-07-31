@@ -8,6 +8,8 @@ import router from "@/router";
 import store from "@/store";
 import i18n from "@/i18n/vue-i18n";
 import Cookies from "js-cookie";
+import mavonEditor from "mavon-editor";
+import "mavon-editor/dist/css/index.css";
 import "@/permission";
 import "@/registerServiceWorker";
 
@@ -33,6 +35,7 @@ require("./../mock/index.js");
 // 组件引入
 Vue.use(Antd);
 Vue.use(vMessage);
+Vue.use(mavonEditor);
 
 /** 自定义组件引入 start */
 Vue.component(Breadcrumb.name, Breadcrumb);
