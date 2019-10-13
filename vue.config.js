@@ -59,7 +59,7 @@ module.exports = {
     proxy: {
       // 配置跨域
       "/api": {
-        target: "http://192.168.124.15", // test
+        target: "http://本地ip", // test
         changeOrigin: true,
         pathRewrite: {
           "^/api": ""
