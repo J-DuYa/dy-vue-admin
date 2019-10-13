@@ -1,8 +1,18 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-24 22:35:33
+ * @LastEditTime: 2019-10-13 15:13:40
+ * @LastEditors: DuYa
+ */
 import Vue from "vue";
 import App from "./App.vue";
 
 import Antd from "ant-design-vue";
 import "ant-design-vue/dist/antd.css";
+
+// viser引入
+import viserVue from "viser-vue";
 
 import router from "@/router";
 import store from "@/store";
@@ -28,14 +38,15 @@ import HeadCard from "@/components/HeadCard";
 import LineEchart from "@/components/LineEchart";
 
 // 自定义插件
-import vMessage from "@/components/Message";
+// import vMessage from "@/components/Message";
 
 require("./../mock/index.js");
 
 // 组件引入
 Vue.use(Antd);
-Vue.use(vMessage);
+// Vue.use(vMessage);
 Vue.use(mavonEditor);
+Vue.use(viserVue);
 
 /** 自定义组件引入 start */
 Vue.component(Breadcrumb.name, Breadcrumb);

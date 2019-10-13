@@ -1,3 +1,7 @@
+<!--
+ * @Author: DuYa
+ * @LastEditors: DuYa
+ -->
 <template>
   <a-layout-sider
     :trigger="null"
@@ -16,11 +20,7 @@
       :defaultSelectedKeys="[activeMenu]"
     >
       <template v-for="menu in menuLists">
-        <a-menu-item
-          :key="menu.key"
-          v-if="!menu.isHasChild"
-          @click="changeMenu(menu.path)"
-        >
+        <a-menu-item :key="menu.key" v-if="!menu.isHasChild" @click="changeMenu(menu.path)">
           <router-link :to="menu.path">
             <a-icon :type="menu.icon" />
             <span>{{ menu.menuName }}</span>
@@ -32,13 +32,8 @@
             <span>{{ menu.menuName }}</span>
           </span>
           <template v-for="childItem in menu.child">
-            <a-menu-item
-              :key="childItem.key"
-              @click="changeMenu(childItem.path)"
-            >
-              <router-link :to="childItem.path">{{
-                childItem.menuName
-              }}</router-link>
+            <a-menu-item :key="childItem.key" @click="changeMenu(childItem.path)">
+              <router-link :to="childItem.path">{{ childItem.menuName }}</router-link>
             </a-menu-item>
           </template>
         </a-sub-menu>
@@ -88,6 +83,9 @@ export default {
     flex-direction: column;
     height: 64px;
     color: #fff;
+    font-size: 25px;
+    font-weight: bolder;
+    letter-spacing: 1px;
   }
   .ly-ctn-menu {
     height: calc(100vh - 64px);

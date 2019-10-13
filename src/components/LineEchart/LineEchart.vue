@@ -99,7 +99,7 @@ export default {
   max-width: 100%;
   background: #fff;
   border-radius: 3px;
-  box-shadow: #ddd 0px 0px 4px;
+  box-shadow: #e8e8e8 0px 0px 4px;
   .lineEchart {
     max-width: 100%;
   }

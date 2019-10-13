@@ -18,11 +18,11 @@ router.beforeEach(async (to, from, next) => {
   // 进入页面的之前 先检测是否进入页面的时候有token(除了特殊页面，如登录，注册，密码等页面)
   if (to.meta.isNotValAuth) {
     store.dispatch("app/updateSetting", false);
-    Cookies.remove("token");
+    localStorage.removeItem("sso-token");
     next();
   } else {
     // 需要验证token是否存在，不存在返回登陆页面
-    if (Cookies.get("token")) {
+    if (localStorage.getItem("sso-token")) {
       store.dispatch("app/updateSetting", true);
       next();
     } else {
@@ -32,8 +32,8 @@ router.beforeEach(async (to, from, next) => {
   }
 });
 
-router.afterEach(() => {
-  if (!Cookies.get("token")) {
+router.afterEach(to => {
+  if (!localStorage.getItem("sso-token") && to.path !== "/register") {
     router.replace("/login");
   }
   NProgress.done();

@@ -1,3 +1,7 @@
+/*
+ * @Author: DuYa
+ * @LastEditors: DuYa
+ */
 /**
  * Editor by duya
  * Date by 2019/4/30
@@ -29,6 +33,19 @@ export default {
             key: "menu-list",
             menuName: "菜单列表",
             path: "/menuList"
+          }
+        ]
+      },
+      {
+        key: "staff",
+        menuName: "成员管理",
+        icon: "team",
+        isHasChild: true,
+        child: [
+          {
+            key: "staff-list",
+            menuName: "成员列表",
+            path: "/employee"
           }
         ]
       },
@@ -68,19 +85,7 @@ export default {
           }
         ]
       },
-      {
-        key: "staff",
-        menuName: "员工管理",
-        icon: "team",
-        isHasChild: true,
-        child: [
-          {
-            key: "staff-list",
-            menuName: "员工列表",
-            path: "/employee"
-          }
-        ]
-      },
+
       {
         key: "about",
         menuName: "关于我们",
@@ -120,6 +125,19 @@ export default {
         ]
       },
       {
+        key: "staff",
+        menuName: "Employee management",
+        icon: "team",
+        isHasChild: true,
+        child: [
+          {
+            key: "staff-list",
+            menuName: "Employee list",
+            path: "/employee"
+          }
+        ]
+      },
+      {
         key: "canvas",
         menuName: "Canvas",
         icon: "bg-colors",
@@ -152,19 +170,6 @@ export default {
             key: "500",
             menuName: "500",
             path: "/500"
-          }
-        ]
-      },
-      {
-        key: "staff",
-        menuName: "Employee management",
-        icon: "team",
-        isHasChild: true,
-        child: [
-          {
-            key: "staff-list",
-            menuName: "Employee list",
-            path: "/employee"
           }
         ]
       },

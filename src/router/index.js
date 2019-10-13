@@ -1,3 +1,7 @@
+/*
+ * @Author: DuYa
+ * @LastEditors: DuYa
+ */
 import Vue from "vue";
 import Router from "vue-router";
 import store from "@/store";
@@ -13,6 +17,15 @@ export default new Router({
       name: "login",
       // "预加载"router
       component: () => import("@/views/User/login"),
+      meta: {
+        isNotValAuth: true // 不需要验证
+      }
+    },
+    {
+      path: "/register",
+      name: "register",
+      // "预加载"router
+      component: () => import("@/views/User/Register"),
       meta: {
         isNotValAuth: true // 不需要验证
       }
@@ -48,6 +61,11 @@ export default new Router({
           path: "/sCanvas",
           name: "sCanvas",
           component: () => import("@/views/Canvas/starCanvas")
+        },
+        {
+          path: "/employee",
+          name: "employee",
+          component: () => import("@/views/User/UserList")
         },
         {
           path: "/404",

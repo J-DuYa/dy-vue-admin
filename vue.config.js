@@ -1,3 +1,7 @@
+/*
+ * @Author: DuYa
+ * @LastEditors: DuYa
+ */
 const path = require("path");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const isProduction = process.env.NODE_ENV === "production";
@@ -55,10 +59,10 @@ module.exports = {
     proxy: {
       // 配置跨域
       "/api": {
-        target: "http://mockjs.com", // test
+        target: "http://192.168.124.15", // test
         changeOrigin: true,
         pathRewrite: {
-          "^/api": "/api"
+          "^/api": ""
         }
       }
     }

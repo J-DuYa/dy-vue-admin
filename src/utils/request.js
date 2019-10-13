@@ -84,6 +84,8 @@ const defaultParams = {};
 /** request 拦截器 */
 axios.interceptors.request.use(
   config => {
+    console.log(config);
+    config.headers.access_token = localStorage.getItem("sso-token");
     return config;
   },
   err => {
@@ -95,8 +97,21 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   res => {
     console.log(res);
+
     const statusKeys = Object.keys(codeMessage);
     try {
+      if (res.headers.access_token) {
+        res.data = res.data
+          ? res.data
+          : {
+              code: 200,
+              data: {
+                token: JSON.stringify(res)
+              }
+            };
+        localStorage.setItem("sso-token", res.headers.access_token);
+        console.log(res.data);
+      }
       const {
         data: { code }
       } = res.data;
@@ -114,6 +129,14 @@ axios.interceptors.response.use(
   err => {
     // 显式报错
     errorHandler(err);
+    const { response = {} } = err;
+    console.log(response);
+    return {
+      data: {
+        code: response.status,
+        data: null
+      }
+    };
   }
 );
 
@@ -140,8 +163,8 @@ export default {
     };
     return new Promise(resolve => {
       axios.post(baseUrl + url, params, headerConfig).then(res => {
-        const { data } = res;
-        resolve(data);
+        console.log(res);
+        resolve(res);
       });
     });
   },

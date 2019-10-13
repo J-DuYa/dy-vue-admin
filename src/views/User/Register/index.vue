@@ -1,19 +1,19 @@
 <!--
  * @Description: In User Settings Edit
  * @Author: your name
- * @Date: 2019-07-24 22:35:33
- * @LastEditTime: 2019-10-13 15:49:38
+ * @Date: 2019-10-11 09:04:58
+ * @LastEditTime: 2019-10-13 15:12:01
  * @LastEditors: DuYa
  -->
 <template>
-  <section class="dk_login">
-    <div class="dk_login_content">
-      <h3 class="mt20vh">人员后台管理系统</h3>
+  <section class="dk_register">
+    <div class="dk_register_content">
+      <h3 class="mt20vh">人员管理系统注册</h3>
       <a-form
-        id="components-form-demo-normal-login"
-        :form="loginForm"
-        class="login-form"
-        @submit="loginSubmit"
+        id="components-form-demo-normal-register"
+        :form="registerForm"
+        class="register-form"
+        @submit="registerSubmit"
       >
         <a-form-item>
           <a-input
@@ -54,22 +54,18 @@
         </a-form-item>
         <a-form-item>
           <div class="btn_area">
-            <a
-              class="login-form-forgot"
-              href="javascript:void(0)"
-              @click="toRegister"
-              >No account?</a
+            <a class="register-form-forgot" href @click="toLogin"
+              >has account?</a
             >
-            <a class="login-form-forgot" href>Forgot password?</a>
           </div>
           <a-button
             type="primary"
             html-type="submit"
-            class="login-form-button"
+            class="register-form-button"
             size="large"
             block
             :loading="submitLoading"
-            >登 录</a-button
+            >注 册</a-button
           >
         </a-form-item>
       </a-form>
@@ -82,29 +78,29 @@
 //   return Object.keys(fieldsError).some(field => fieldsError[field]);
 // }
 export default {
-  name: "Login",
+  name: "register",
   data() {
     return {
-      loginForm: this.$form.createForm(this),
+      registerForm: this.$form.createForm(this),
       submitLoading: false
     };
   },
   methods: {
-    toRegister() {
-      console.log("chufa");
-      this.$router.push("/register");
+    toLogin() {
+      this.$router.push("/login");
     },
-    loginSubmit(e) {
+    registerSubmit(e) {
       e.preventDefault();
-      this.loginForm.validateFields((err, values) => {
+      this.registerForm.validateFields((err, values) => {
         if (!err) {
           this.submitLoading = true;
           this.$request
-            .post("/login", values)
+            .post("/users/signup", values)
             .then(res => {
+              console.log(res);
               if (res.code === 200) {
-                console.log("进入", res);
-                this.$router.push("/");
+                console.log("恭喜你注册成功");
+                this.$message.success("恭喜你注册成功");
               }
             })
             .finally(() => {
@@ -118,14 +114,14 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.dk_login {
+.dk_register {
   display: flex;
   align-content: center;
   align-items: center;
   height: 100vh;
   background: url(https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg);
   box-sizing: border-box;
-  .dk_login_content {
+  .dk_register_content {
     margin: -30vh auto 0 auto;
     padding: 20px;
     width: 428px;
