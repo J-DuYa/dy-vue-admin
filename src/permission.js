@@ -5,7 +5,6 @@
  * @Last Modified by: zoujun
  * @Last Modified time: 2019-07-12 15:03:16
  */
-import Cookies from "js-cookie";
 import router from "./router";
 import store from "@/store";
 import NProgress from "nprogress"; // progress bar

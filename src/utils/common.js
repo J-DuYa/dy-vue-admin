@@ -6,7 +6,7 @@
  * @Last Modified time: 2019-07-12 16:01:51
  */
 
-"use strict";
+/* eslint-disable */
 
 import { notification } from "ant-design-vue";
 
