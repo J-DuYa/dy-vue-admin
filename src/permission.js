@@ -15,6 +15,7 @@ router.beforeEach(async (to, from, next) => {
   // start progress bar
   NProgress.start();
   // 进入页面的之前 先检测是否进入页面的时候有token(除了特殊页面，如登录，注册，密码等页面)
+  console.log(to);
   if (to.meta.isNotValAuth) {
     store.dispatch("app/updateSetting", false);
     localStorage.removeItem("sso-token");

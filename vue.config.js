@@ -55,17 +55,17 @@ module.exports = {
   lintOnSave: true,
   productionSourceMap: false,
   devServer: {
-    port: 121,
-    proxy: {
-      // 配置跨域
-      "/api": {
-        target: "http://本地ip", // test
-        changeOrigin: true,
-        pathRewrite: {
-          "^/api": ""
-        }
-      }
-    }
+    port: 121
+    // proxy: {
+    //   // 配置跨域
+    //   "/api": {
+    //     target: "http://本地ip", // test
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       "^/api": ""
+    //     }
+    //   }
+    // }
   },
   publicPath: process.env.NODE_ENV === "production" ? "/" : "/",
   configureWebpack: config => {

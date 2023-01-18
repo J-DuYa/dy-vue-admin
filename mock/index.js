@@ -31,7 +31,7 @@ const postLogin = req => {
 
   for (let c = 0; c < UserList.length; c++) {
     if (
-      JsonParams.user === UserList[c].name &&
+      JsonParams.userName === UserList[c].name &&
       JsonParams.password === UserList[c].password
     ) {
       result = Mock.mock({

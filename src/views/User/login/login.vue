@@ -103,7 +103,6 @@ export default {
             .post("/login", values)
             .then(res => {
               if (res.code === 200) {
-                console.log("进入", res);
                 this.$router.push("/");
               }
             })

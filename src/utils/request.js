@@ -23,7 +23,8 @@ const codeMessage = {
   504: "The gateway timed out."
 };
 
-const baseUrl = "/api";
+// const baseUrl = "/api";
+const baseUrl = "/user";
 axios.defaults.timeout = 6000; // 根据具体情况而定
 
 /** 404 和 500 异常报错的处理方式  */
@@ -84,7 +85,6 @@ const defaultParams = {};
 /** request 拦截器 */
 axios.interceptors.request.use(
   config => {
-    console.log(config);
     config.headers.access_token = localStorage.getItem("sso-token");
     return config;
   },
@@ -96,31 +96,32 @@ axios.interceptors.request.use(
 /** response 拦截器 */
 axios.interceptors.response.use(
   res => {
-    console.log(res);
-
     const statusKeys = Object.keys(codeMessage);
+    const {
+      data: {
+        data: { token, code }
+      }
+    } = res;
+
     try {
-      if (res.headers.access_token) {
+      if (res.headers.access_token || token) {
         res.data = res.data
           ? res.data
           : {
               code: 200,
               data: {
-                token: JSON.stringify(res)
+                token: JSON.stringify(token ? token : res)
               }
             };
-        localStorage.setItem("sso-token", res.headers.access_token);
-        console.log(res.data);
+        localStorage.setItem("sso-token", res.headers.access_token || token);
       }
-      const {
-        data: { code }
-      } = res.data;
+
       if (statusKeys.includes(code.toString())) {
         // 隐式报错
-        custErrorHandler(res);
-        return res;
+        custErrorHandler(res.data);
+        return res.data.data;
       } else {
-        return res;
+        return res.data.data;
       }
     } catch (e) {
       return res.data;
@@ -130,7 +131,6 @@ axios.interceptors.response.use(
     // 显式报错
     errorHandler(err);
     const { response = {} } = err;
-    console.log(response);
     return {
       data: {
         code: response.status,
@@ -163,7 +163,6 @@ export default {
     };
     return new Promise(resolve => {
       axios.post(baseUrl + url, params, headerConfig).then(res => {
-        console.log(res);
         resolve(res);
       });
     });
