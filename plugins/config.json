@@ -1,0 +1,10 @@
+{
+  "name": "@duya/plugin-core",
+  "description": "dy-vue-admin 插件集成系统",
+  "config": [],
+  "keywords": [
+    "插件集成",
+    "plugins",
+    "多元化部署应用"
+  ]
+}
